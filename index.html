@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valeria Rybaczuk · e-commerce</title>
+<meta name="description" content="Wizytówka Valerii Rybaczuk, młodszego specjalisty ds. e-commerce. Sprawdź, jakim kupującym online jesteś.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --atrament: #1C1B2E;
+    --akcent: #5B4BDB;
+    --akcent-jasny: #ECE9FF;
+    --koral: #FF7A59;
+    --tlo: #F7F5F2;
+    --karta: #FFFFFF;
+    --linia: #E6E2DA;
+    --tekst: #22212F;
+    --tekst-slaby: #67657A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', 'Trebuchet MS', Verdana, Arial, sans-serif;
+    background: var(--tlo); color: var(--tekst); line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .strona { max-width: 480px; margin: 0 auto; min-height: 100vh; }
+  [hidden] { display: none !important; }
+  .nw { white-space: nowrap; }
+
+  header {
+    background: var(--atrament); color: #fff; text-align: center;
+    padding: 36px 20px 58px; border-radius: 0 0 28px 28px;
+  }
+  .awatar {
+    width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 16px;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--akcent), var(--koral));
+    font-size: 34px; font-weight: 700; letter-spacing: 1px;
+  }
+  h1 { font-size: 28px; font-weight: 700; }
+  .rola { color: #C9C2FF; font-weight: 500; font-size: 15px; margin-top: 4px; }
+  .haslo { color: rgba(255,255,255,.7); font-size: 13px; margin-top: 6px; }
+
+  .kontakt {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: -34px 16px 0; position: relative;
+  }
+  .kontakt a {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 52px; padding: 10px 12px; background: var(--karta); color: var(--atrament);
+    border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 14px;
+    box-shadow: 0 4px 14px rgba(28,27,46,.10);
+  }
+  .kontakt a.glowny { grid-column: 1 / -1; background: var(--akcent); color: #fff; font-size: 15px; }
+  .kontakt svg { width: 18px; height: 18px; flex: none; }
+
+  section { margin: 28px 16px 0; }
+  h2 { font-size: 19px; font-weight: 700; color: var(--atrament); margin-bottom: 4px; }
+  .pod { color: var(--tekst-slaby); font-size: 14px; margin-bottom: 14px; }
+
+  .quiz {
+    background: var(--karta); border-radius: 20px; padding: 20px;
+    box-shadow: 0 4px 18px rgba(28,27,46,.07); border-top: 4px solid var(--koral);
+  }
+  .postep { display: flex; gap: 6px; margin-bottom: 16px; }
+  .postep span { flex: 1; height: 5px; border-radius: 3px; background: var(--linia); }
+  .postep span.zrobione { background: var(--koral); }
+  .pytanie { font-weight: 600; font-size: 17px; margin-bottom: 14px; }
+  .odpowiedzi { display: grid; gap: 9px; }
+  .odpowiedzi button {
+    font: inherit; font-size: 15px; text-align: left; cursor: pointer; padding: 13px 16px;
+    border-radius: 12px; border: 1.5px solid var(--linia); background: #fff; color: var(--tekst);
+    transition: border-color .15s, background .15s;
+  }
+  .odpowiedzi button:hover, .odpowiedzi button:focus-visible { border-color: var(--akcent); background: var(--akcent-jasny); outline: none; }
+
+  .wynik { text-align: center; }
+  .wynik .etykieta { font-size: 13px; color: var(--tekst-slaby); }
+  .wynik h3 { font-size: 24px; color: var(--akcent); margin: 2px 0 10px; }
+  .wynik p { font-size: 15px; margin-bottom: 14px; }
+  .wynik .tip {
+    text-align: left; background: var(--akcent-jasny); border-radius: 12px;
+    padding: 12px 14px; font-size: 14px; color: var(--atrament);
+  }
+  .wynik .tip b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--akcent); margin-bottom: 2px; }
+  .jeszcze-raz {
+    display: block; margin: 14px auto 0; background: none; border: none; font: inherit;
+    color: var(--tekst-slaby); text-decoration: underline; cursor: pointer; font-size: 13px;
+  }
+
+  .chipy { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chipy span {
+    background: var(--karta); border: 1px solid var(--linia); color: var(--atrament);
+    font-size: 13px; font-weight: 500; padding: 7px 13px; border-radius: 999px;
+  }
+  .chipy.narzedzia span { background: var(--akcent-jasny); border-color: transparent; color: var(--akcent); }
+
+  footer {
+    margin-top: 36px; background: var(--atrament); color: rgba(255,255,255,.7);
+    text-align: center; font-size: 13px; padding: 26px 20px 30px;
+  }
+</style>
+</head>
+<body>
+<div class="strona">
+
+  <header>
+    <div class="awatar">VR</div>
+    <h1>Valeria Rybaczuk</h1>
+    <div class="rola">Młodszy specjalista ds. <span class="nw">e-commerce</span></div>
+    <div class="haslo"><span class="nw">Sklepy internetowe</span> · <span class="nw">marketplace'y</span> · <span class="nw">e-mail marketing</span></div>
+  </header>
+
+  <div class="kontakt">
+    <a class="glowny" id="btn-vcard" href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      Zapisz mój kontakt
+    </a>
+    <a id="btn-mail" href="#" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      E-mail
+    </a>
+    <a id="btn-tel" href="#" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Zadzwoń
+    </a>
+    <a id="btn-linkedin" href="#" target="_blank" rel="noopener" hidden>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+
+  <section>
+    <h2>Jakim kupującym online jesteś?</h2>
+    <p class="pod">3 pytania, 20 sekund. Zobacz, jak widzi Cię sklep internetowy.</p>
+    <div class="quiz" id="quiz" aria-live="polite"></div>
+  </section>
+
+  <section>
+    <h2>Czym się zajmuję</h2>
+    <p class="pod">Wszystko, co dzieje się między kliknięciem "Kupuję" a paczką u klienta.</p>
+    <div class="chipy">
+      <span>Sklepy internetowe</span>
+      <span>Marketplace'y</span>
+      <span>Obsługa zamówień</span>
+      <span>Newslettery</span>
+      <span>Social media</span>
+      <span>Raporty i analizy</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Narzędzia</h2>
+    <div class="chipy narzedzia">
+      <span>Shopify</span>
+      <span>Allegro</span>
+      <span>Baselinker</span>
+      <span>Klaviyo</span>
+      <span>Canva</span>
+      <span>Excel</span>
+    </div>
+  </section>
+
+  <footer>Dzięki za zeskanowanie mojego kodu!</footer>
+</div>
+
+<script>
+  // Dane kontaktowe: puste pole = przycisk się nie pokazuje
+  const DANE = {
+    imie: 'Valeria',
+    nazwisko: 'Rybaczuk',
+    rola: 'Młodszy specjalista ds. e-commerce',
+    email: '',     // np. 'valeria@przyklad.pl'
+    telefon: '',   // np. '+48 600 000 000'
+    linkedin: ''   // np. 'https://www.linkedin.com/in/...'
+  };
+
+  const ustaw = (id, href) => {
+    const el = document.getElementById(id);
+    if (href) { el.href = href; el.hidden = false; } else { el.hidden = true; }
+  };
+  ustaw('btn-mail', DANE.email && 'mailto:' + DANE.email);
+  ustaw('btn-tel', DANE.telefon && 'tel:' + DANE.telefon.replace(/\s/g, ''));
+  ustaw('btn-linkedin', DANE.linkedin);
+
+  // Wizytówka do telefonu (.vcf) budowana z DANE
+  const vcard = [
+    'BEGIN:VCARD', 'VERSION:3.0',
+    `N:${DANE.nazwisko};${DANE.imie};;;`,
+    `FN:${DANE.imie} ${DANE.nazwisko}`,
+    `TITLE:${DANE.rola}`,
+    DANE.email && `EMAIL:${DANE.email}`,
+    DANE.telefon && `TEL;TYPE=CELL:${DANE.telefon}`,
+    DANE.linkedin && `URL:${DANE.linkedin}`,
+    'END:VCARD'
+  ].filter(Boolean).join('\r\n');
+  const vc = document.getElementById('btn-vcard');
+  vc.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+  vc.download = `${DANE.imie}_${DANE.nazwisko}.vcf`;
+
+  const WYNIKI = {
+    lowca: {
+      typ: 'Łowca okazji',
+      opis: 'Masz pełną listę ulubionych i cierpliwie czekasz na dobry kod rabatowy. Promocja to Twój sport.',
+      tip: 'Dlatego sklepy tak chętnie dają rabat za zapis do newslettera, a w koszyku pokazują, ile brakuje do darmowej dostawy.'
+    },
+    analityk: {
+      typ: 'Analityk',
+      opis: 'Zanim klikniesz "Kupuję", czytasz opinie, porównujesz ceny i sprawdzasz warunki zwrotu.',
+      tip: 'Dlatego dobre zdjęcia, dokładny opis i prawdziwe opinie to najważniejsze elementy karty produktu.'
+    },
+    spontan: {
+      typ: 'Spontaniczny odkrywca',
+      opis: 'Wchodzisz po jedną rzecz, wychodzisz z trzema. Koszyk to Twoja strefa przygody.',
+      tip: 'Dlatego sklepy pokazują "Inni kupili też..." i zestawy produktów, które dobrze do siebie pasują.'
+    },
+    lojalny: {
+      typ: 'Lojalny klasyk',
+      opis: 'Masz swoje sprawdzone sklepy i nie lubisz niespodzianek. Liczy się szybka dostawa i spokój.',
+      tip: 'Dlatego sklepy inwestują w programy lojalnościowe, szybką wysyłkę i miłą obsługę klienta.'
+    }
+  };
+
+  const PYTANIA = [
+    { tresc: 'Widzisz rzecz, która Ci się podoba. Co robisz?', odp: [
+      ['Czekam na promocję albo szukam kodu rabatowego', 'lowca'],
+      ['Czytam opinie i porównuję ceny w kilku sklepach', 'analityk'],
+      ['Kupuję od razu, zanim się rozmyślę', 'spontan'],
+      ['Sprawdzam, czy jest w moim ulubionym sklepie', 'lojalny']
+    ]},
+    { tresc: 'Twój koszyk w sklepie internetowym to...', odp: [
+      ['Lista życzeń na Black Friday', 'lowca'],
+      ['Miejsce do porównania kilku opcji', 'analityk'],
+      ['Zawsze pełniejszy, niż było w planie', 'spontan'],
+      ['Szybka droga do tego, co zawsze', 'lojalny']
+    ]},
+    { tresc: 'Co najbardziej przekonuje Cię do zakupu?', odp: [
+      ['Rabat i darmowa dostawa', 'lowca'],
+      ['Dobre opinie i dokładny opis', 'analityk'],
+      ['Piękne zdjęcie i "zostały 2 sztuki"', 'spontan'],
+      ['Zaufanie do sklepu, który znam', 'lojalny']
+    ]}
+  ];
+
+  const quiz = document.getElementById('quiz');
+  let krok = 0, wybory = [];
+
+  const postep = () => '<div class="postep">' +
+    PYTANIA.map((_, i) => `<span class="${i < krok ? 'zrobione' : ''}"></span>`).join('') + '</div>';
+
+  function pokazPytanie() {
+    const p = PYTANIA[krok];
+    quiz.innerHTML = postep() + `<div class="pytanie">${p.tresc}</div><div class="odpowiedzi">` +
+      p.odp.map(([t, k]) => `<button data-k="${k}">${t}</button>`).join('') + '</div>';
+    quiz.querySelectorAll('button').forEach(b => b.onclick = () => {
+      wybory.push(b.dataset.k); krok++;
+      krok < PYTANIA.length ? pokazPytanie() : pokazWynik();
+    });
+  }
+
+  function pokazWynik() {
+    // Najczęstsza odpowiedź; przy remisie decyduje ostatnie pytanie
+    const licz = {};
+    wybory.forEach(k => licz[k] = (licz[k] || 0) + 1);
+    const max = Math.max(...Object.values(licz));
+    const remis = Object.keys(licz).filter(k => licz[k] === max);
+    const ostatni = wybory[wybory.length - 1];
+    const w = WYNIKI[remis.includes(ostatni) ? ostatni : remis[0]];
+    quiz.innerHTML = postep() + `
+      <div class="wynik">
+        <div class="etykieta">Twój typ kupującego</div>
+        <h3>${w.typ}</h3>
+        <p>${w.opis}</p>
+        <div class="tip"><b>Okiem e-commerce</b>${w.tip}</div>
+        <button class="jeszcze-raz">Spróbuj jeszcze raz</button>
+      </div>`;
+    quiz.querySelector('.jeszcze-raz').onclick = () => { krok = 0; wybory = []; pokazPytanie(); };
+  }
+
+  pokazPytanie();
+</script>
+</body>
+</html>
